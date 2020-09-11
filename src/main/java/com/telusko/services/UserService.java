@@ -1,0 +1,22 @@
+package com.telusko.services;
+
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+import com.telusko.modal.User;
+import com.telusko.repository.UserRepository;
+
+@Service
+@Transactional
+public class UserService {
+private final UserRepository userRepository;
+	
+	public UserService(UserRepository userRepository) {
+		this.userRepository=userRepository;
+	}
+	
+	public void saveMyUser(User user ) {
+		userRepository.save(user);
+	}
+
+}
